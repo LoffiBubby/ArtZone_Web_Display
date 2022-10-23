@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Register Page</title>
+    {% load static %}
+    <link rel="stylesheet" href="../static/css/register.css">
+    <link rel="stylesheet" href="../static/css/base.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500&family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        .w {
+            width: 1200px;
+            margin: 0 auto;
+            background-color: deeppink;
+        }
+        .shortcut {
+            height: 40px;
+            line-height: 40px;
+            background-color: #f1f1f1;
+        }
+        .fl {
+            float: left;
+        }
+        .fr {
+            float: right;
+        }
+        .shortcut ul li {
+            margin-top: -16px;
+            list-style: none;
+            float: left;
+            padding-left: 10px;
+            font-size: 20px;
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+        .shortcut .ve_account {
+            margin-left: 10px;
+            font-size: 10px;
+            margin-top: 3px;
+        }
+        .shortcut .ve_account a {
+            text-decoration: none;
+            transition: color 0.3s linear, font-weight 0.3s linear;
+        }
+        .shortcut .ve_account a:hover {
+            color: deepskyblue;
+            font-weight: 500;
+        }
+        .fr ul li a {
+            text-decoration: none;
+            font-family: 'Pacifico', cursive;
+            font-size: 15px;
+            transition: all 0.5s linear;
+        }
+        .register {
+            width: 400px;
+            height: 600px;
+            margin: 0 auto;
+        }
+        .items {
+            padding-top: 60px;
+        }
+        .items li h1 {
+            padding-left: 130px;
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+        .items li {
+            padding-top: 20px;
+        }
+        .username td {
+            padding-top: 15px;
+            font-size: 15px;
+            padding-left: 40px;
+        }
+        .username td input {
+            border: 1px solid #f1f1f1;
+            height: 24px;
+            padding-left: 5px;
+            border-radius: 4px;
+            transition: all 0.5s;
+        }
+        .username td input:focus {
+            outline: none;
+            border: 2px solid deepskyblue;
+        }
+        .password td {
+            padding-top: 15px;
+            font-size: 15px;
+            padding-left: 46px;
+        }
+        .password td input {
+            border: 1px solid #f1f1f1;
+            padding-left: 5px;
+            margin-left: -6px;
+            height: 24px;
+            border-radius: 4px;
+            transition: all 0.5s;
+        }
+        .password td input:focus {
+            outline: none;
+            border: 2px solid deepskyblue;
+        }
+        .first_name td {
+            padding-top: 15px;
+            font-size: 15px;
+            padding-left: 50px;
+        }
+        .first_name td input {
+            border: 1px solid #f1f1f1;
+            padding-left: 5px;
+            margin-left: -10px;
+            height: 24px;
+            border-radius: 4px;
+            transition: all 0.5s;
+        }
+        .first_name td input:focus {
+            outline: none;
+            border: 2px solid deepskyblue;
+        }
+        .last_name td {
+            padding-top: 15px;
+            font-size: 15px;
+            padding-left: 50px;
+        }
+        .last_name td input {
+            border: 1px solid #f1f1f1;
+            padding-left: 5px;
+            margin-left: -10px;
+            height: 24px;
+            border-radius: 4px;
+            transition: all 0.5s;
+        }
+        .last_name td input:focus {
+            outline: none;
+            border: 2px solid deepskyblue;
+        }
+        .email td {
+            padding-top: 15px;
+            font-size: 15px;
+            padding-left: 46px;
+        }
+        .email td input {
+            border: 1px solid #f1f1f1;
+            padding-left: 5px;
+            margin-left: -6px;
+            height: 24px;
+            border-radius: 4px;
+            transition: all 0.5s;
+        }
+        .email td input:focus {
+            outline: none;
+            border: 2px solid deepskyblue;
+        }
+        .sign-up-input {
+            padding-left: 150px;
+        }
+        .tj input {
+            margin-left: 150px;
+            background-color: deepskyblue;
+            width: 100px;
+            height: 40px;
+            font-family: 'Noto Sans TC', sans-serif;
+            color: white;
+            border: 2px solid deepskyblue;
+            border-radius: 20px;
+            transition: all 0.5s;
+        }
+        .tj input:hover {
+            color: deepskyblue;
+            background-color: white;
+        }
+        .dl input {
+            margin-top: 15px;
+            margin-left: 150px;
+            background-color: deepskyblue;
+            width: 100px;
+            height: 40px;
+            font-family: 'Noto Sans TC', sans-serif;
+            color: white;
+            border: 2px solid deepskyblue;
+            border-radius: 20px;
+            transition: all 0.5s;
+        }
+        .dl input:hover {
+            color: deepskyblue;
+            background-color: white;
+        }
+    </style>
+</head>
+<body onload="getSysTime()">
+    <form method="post" name="login" action="/register/">
+        {% csrf_token %}
+        <section class="shortcut">
+            <div class="w">
+                <ul class="fl">
+                    <li>欢迎您注册AMG.net</li>
+{#                    <li class="ve_account">已有账号，去<a href="/login/">登录</a></li>#}
+                </ul>
+                <ul class="fr">
+                    <li><a href="mailto: lwk1609964274@outlook.com">Email us</a></li>
+                </ul>
+            </div>
+            <div class="register">
+                <ul class="items">
+                    <li><h1>注册登记</h1></li>
+                </ul>
+                <table>
+                    <tr class="username">
+                        <td>用户名</td>
+                        <td><input type="text" name="username" size="30" maxlength="20" class="text" value="{{info.username}}"></td>
+                    </tr>
+                    <tr class="password">
+                        <td>密码</td>
+                        <td class="sign_pwd"><input type="password" name="pwd" size="30" maxlength="10" class="text" value="{{info.pwd}}"></td>
+                    </tr>
+                    <tr class="first_name">
+                        <td>姓</td>
+                        <td><input type="text" name="first_name" size="30" maxlength="30" class="text" value="{{info.first_name}}"></td>
+                    </tr>
+                    <tr class="last_name">
+                        <td>名</td>
+                        <td><input type="text" name="last_name" size="30" maxlength="30" class="text" value="{{info.last_name}}"></td>
+                    </tr>
+                    <tr class="email">
+                        <td>邮箱</td>
+                        <td><input type="email" name="email" size="30" maxlength="50" class="text" value="{{info.email}}"></td>
+                    </tr>
+                    <tr align="center" >
+                        <td class="sign-up-input" colspan="2" align="left">
+                            <span style="font-size: 8px;display: block;color: red;">{{ error_msg }}</span>
+                        </td>
+                    </tr>
+                    <tr class="tj">
+                        <td colspan="2">
+                            <input type="submit" value="提交">
+                        </td>
+                    </tr>
+                    <tr class="dl">
+                        <td colspan="2">
+                            <input type="button" value="登陆" onclick="window.location.href = '/login/'">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+    </form>
+</body>
+</html>

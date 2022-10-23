@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Art-Zone Login</title>
+    <link rel="stylesheet" href="../static/css/base.css">
+{#    <link rel="stylesheet" href="../static/css/login.css">#}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Italianno&family=Monoton&family=Noto+Sans+HK&family=Staatliches&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <style>
+        .log {
+            width: 1200px;
+            margin: auto;
+        }
+        .header {
+            position: relative;
+            height: 80px;
+        }
+        .header .logo {
+            position: absolute;
+            width: 300px;
+            height: 60px;
+            top: 10px;
+            left: 0px;
+        }
+        .header .logo h1 a {
+            display: block;
+            width: 300px;
+            height: 110px;
+            background: url(" ../static/images/emblem-art-gallery_658131-1.png") no-repeat;
+            background-size: contain;
+        }
+        .header .logo h1 {
+            font-size: 0;
+        }
+        .header .service {
+            width: 130px;
+            height: 40px;
+            background-color: deepskyblue;
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            line-height: 40px;
+            text-align: center;
+            color: white;
+            font-size: 15px;
+            border-radius: 20px;
+            border: 1px solid deepskyblue;
+            font-family: 'Noto Sans HK', sans-serif;
+            transition: background-color 0.5s;
+        }
+        .header .service span {
+            margin-top: 5px;
+            font-size: 18px;
+            margin-left: 8px;
+        }
+        .header .service a {
+            text-decoration: none;
+            color: white;
+            transition: color 0.5s;
+        }
+        .header .service:hover {
+            background-color: white;
+        }
+        .header .service:hover a {
+            color: deepskyblue;
+        }
+        table {
+            margin: auto;
+        }
+        .title {
+            font-family: 'Monoton', cursive;
+            font-weight: 400;
+            font-size: 60px;
+            text-align: center;
+        }
+        .username td p {
+            margin-top: 30px;
+            padding-left: 110px;
+            font-size: 20px;
+            font-family: 'Noto Sans HK', sans-serif;
+        }
+        .username td input ,
+        .password td input {
+            height: 30px;
+            border: 2px solid deepskyblue;
+            border-radius: 15px;
+            margin-left: -50px;
+            padding-left: 10px;
+            margin-top: 30px;
+        }
+        .password td p {
+            padding-left: 110px;
+            font-size: 20px;
+            font-family: 'Noto Sans HK', sans-serif;
+            margin-top: 30px;
+        }
+        .checkbox input {
+            height: 15px;
+            line-height: 15px;
+        }
+        .checkbox {
+            font-family: 'Noto Sans HK', sans-serif;
+            font-size: 15px;
+            line-height: 15px;
+        }
+        .submit td input {
+            font-family: 'Noto Sans HK', sans-serif;
+            font-size: 20px;
+            color: white;
+            background-color: deepskyblue;
+            margin-left: 180px;
+            margin-top: 20px;
+            width: 150px;
+            height: 40px;
+            border: 2px solid deepskyblue;
+            border-radius: 20px;
+            transition: all 0.5s;
+        }
+        .submit td input:hover {
+            color: deepskyblue;
+            background-color: white;
+        }
+    </style>
+</head>
+<body onload="getSysTime()">
+    <div class="log">
+        <form action="/login/" name="login" method="post">
+            {% csrf_token %}
+            <div class="header">
+                <div class="logo">
+                    <h1>
+                        <a href="#" title="AMG.net">AMG.net</a>
+                    </h1>
+                </div>
+                <div class="service">
+                    <a href="#">咨询客服<span class="material-icons-outlined">whatsapp</span></a>
+                </div>
+            </div>
+            {#标题的设计#}
+            <table width="500" height="180" border="0" cellspacing="0">
+                <tr>
+                    <td colspan="2">
+                        <p class="title">Login</p>
+                    </td>
+                </tr>
+                <tr class="username">
+                    <td><p>用户名</p></td>
+                    <td>
+                        <input type="text" name="username" size="30" maxlength="20" class="text" value="{{info.username}}">
+                    </td>
+                </tr>
+                <tr class="password">
+                    <td><p>密&nbsp;码</p></td>
+                    <td>
+                        <input type="password" name="pwd" size="30" maxlength="10" class="text" value="{{info.pwd}}">
+                    </td>
+                </tr>
+                <tr class="remember">
+                    <td></td>
+                    <td>
+                        <span style="font-size: 8px;display: block;color: red;" >{{ error_msg }}</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="checkbox">
+                        <input type="checkbox" name="remembered" value="on">Remember the Login for 1 Day
+                    </td>
+                </tr>
+                <tr class="submit">
+                    <td colspan="2">
+                        <input type="submit" value="登&nbsp;陆">
+                    </td>
+                </tr>
+            </table>
+            <footer id="b_footer" class="b_footer" role="contentinfo" aria-label="页脚" data-bm="24">
+                <div id="b_footerItems">
+                    <span>© 2022 Weikun Li</span>
+                    <ul>
+                        <li>
+                            <a id="sb_privacy" target="_blank" href="https://www.sydney.edu.au/students/student-responsibilities.html">Responsibility</a>
+                        </li>
+                        <li>
+                            <a id="sb_legal" target="_blank" href="https://www.sydney.edu.au/students/academic-integrity.html">Academic Integrity</a>
+                        </li>
+                        <li>
+                            <a id="sb_advertise" target="_blank" href="https://www.bing.com/ck/a?!&amp;&amp;p=da3c6f8a6dbe88b3JmltdHM9MTY2NjM5NjgwMCZpZ3VpZD0yODdlMzBjMC04MjFiLTZjYjUtMTRlYy0yMWUyODM1ODZkMmYmaW5zaWQ9NTA0NQ&amp;ptn=3&amp;hsh=3&amp;fclid=287e30c0-821b-6cb5-14ec-21e283586d2f&amp;psq=%e8%b0%b7%e6%ad%8c&amp;u=a1aHR0cHM6Ly9nby5taWNyb3NvZnQuY29tL2Z3bGluay8_bGlua2lkPTg2ODkyMg&amp;ntb=1" h="ID=SERP,5045.1">广告</a>
+                        </li>
+                        <li>
+                            <a id="sb_help" target="_blank" href="" h="ID=SERP,5046.1">帮助</a>
+                        </li>
+                        <li>
+                            <a role="button" id="sb_feedback" href="#" h="ID=SERP,5047.1" class="feedback-binded">反馈</a>
+                        </li>
+                    </ul>
+                </div><!--foo--></footer>
+        </form>
+    </div>
+</body>
+</html>

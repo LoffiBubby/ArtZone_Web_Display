@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<form action="/wenxinapi/" method="post">
+    {% csrf_token %}
+    Art type select:
+    <div class="artselect">
+        <table>
+            <tr class="content">
+                <td>Text</td>
+                <td>
+                    <input name="text" autocomplete="off" maxlength="100" placeholder="请用中文输入Prompt，参考形式：画面主体，细节描述，修饰词" id="text" type="text" value="{{ text }}">
+                </td>
+            </tr>
+            <tr>
+                <td>Style</td>
+                <td>
+{#                    <select name="style">#}
+{#                        {% for style in stylelist %}#}
+{#                            <option value="{{ style }}">{{ style }}</option>#}
+{#                        {% endfor %}#}
+{#                    </select>#}
+                    <input name="style" autocomplete="off" maxlength="100" placeholder="Please input with Chinese" value="{{ style }}">
+                </td>
+            </tr>
+            <tr>
+                <td>Resolution</td>
+                <td>
+{#                    <select name="resolution">#}
+{#                        <option value="{{ resolution }}">1024*1024</option>#}
+{#                        <option value="{{ resolution }}">1024*1536</option>#}
+{#                        <option value="{{ resolution }}">1536*1024</option>#}
+{#                    </select>#}
+                    <input name="resolution" type="text" maxlength="100" placeholder="1024*1024,1024*1536,1536*1024 are available" value="{{ resolution }}">
+                </td>
+            </tr>
+        </table>
+        <input type="submit" value="CREATE">
+    </div>
+</form>
+<table>
+    <tr>
+        <td>ImgUrl</td>
+    </tr>
+    {% for result in rst.imgUrls %}
+    <tr>
+        <td><a href="{{ result }}">{{ result }}</a>
+            <img src="{{ result }}" width="300" height="300"></td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>

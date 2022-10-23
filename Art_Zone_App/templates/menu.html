@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../static/css/menu.css">
+    <title>Main Menu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .w {
+            height: 800px;
+        }
+        .body {
+            width: 100%;
+            height: 100%;
+            background: url("../static/images/奔驰背景图.jpg") no-repeat top center;
+            background-size: contain;
+        }
+        .sub_nav {
+            margin-top: 30px;
+            float: right;
+        }
+        .sub_nav ul li {
+            width: 300px;
+            height: 60px;
+            background-color: rgba(0,0,0,0.3);
+            border-bottom: 2px solid deepskyblue;
+            transition: all 0.5s;
+        }
+        .sub_nav ul li p {
+            font-size: 20px;
+            text-align: center;
+            padding-top: 20px;
+            font-family: 'Noto Sans TC', sans-serif;
+            color: white;
+            transition: color 0.5s;
+        }
+        .sub_nav ul li:hover {
+            background-color: white;
+            border: 2px solid deepskyblue;
+        }
+        .sub_nav ul li:hover p {
+            color: deepskyblue;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="w">
+        <div class="body">
+            <div class="sub_nav">
+                <ul>
+                    <li onclick="window.location.href='/levelSaleChart/'"><p>车型销量排行</p></li>
+                    <li onclick="window.location.href='/levelPriceChart/'"><p>车型口碑对比</p></li>
+                    <li onclick="window.location.href='/comparePage/'"><p>数据查询</p></li>
+                    <li onclick="window.location.href='/saleChart/'"><p>销量走势情况</p></li>
+                    <li onclick="window.location.href='/brandSaleChart/'"><p>品牌价格对比</p></li>
+                    <li onclick="window.location.href='/priceChart/'"><p>品牌市场份额</p></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+.sign-up table{
+    margin: 1.25em 55px;
+    line-height: 40px;
+    font-size:1em;
+}
+.sign-up table td{
+    border-bottom: 1px solid #ffffff;
+}
+.top td{
+    border-top: 1px solid #ffffff;
+}
+.sign-up .label{
+    width: 5em;
+}
+.title{
+    margin-top: 35px;
+    margin-left: 55px;
+    font-size:35px;
+    line-height: 3.125em;
+}
+.sign-up-input input{
+    height: 28px;
+    width: 230px;
+}
+.checkbox{
+    width: 0.625em;
+}
+.msg{
+    font-size:0.625em;
+    color: #ca0c16;
+}
+.submit{
+    width: 90px;
+    height: 35px;
+    color: white;
+    font-size:1em;
+    margin-left: 55px;
+    background-color: #333333;
+}
+.right{
+    float: right;
+    width: 40%;
+}
+.left{
+    float: left;
+}

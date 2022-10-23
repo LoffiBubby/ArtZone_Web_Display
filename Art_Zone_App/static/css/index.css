@@ -1,0 +1,109 @@
+html,body {
+    background: url("../images/bg1.jpeg");
+    font-size: 1em;
+    color: #333333;
+    background-size: cover;
+}
+
+.logo {
+    width: 5em;
+    margin: 1.25em 3.125em;
+}
+
+.admin{
+    padding-top: 1.44em;
+    font-size: 1.1em;
+}
+
+#container {
+    margin: 0 auto;
+    width: 90%;
+    height: 62.5em;
+}
+
+.header {
+    height: 6.25em;
+    width: 100%;
+    margin-bottom: 0.85em;
+}
+.header h1{
+    margin: 0.86em auto;
+    float: left;
+}
+#mainContent {
+    margin-bottom: 0.31em;
+    height: 65%;
+    width: 100%;
+}
+
+.left {
+    float: left;
+}
+.content{
+    width: 14%;
+    height: 100%;
+}
+
+.main {
+    float: right;
+    width: 85%;
+    height: 100%;
+}
+
+.main iframe {
+    width: 100%;
+    height: 100%;
+}
+
+.panel-title {
+    margin-top: 0.625em;
+    margin-left: 0.8em;
+}
+
+.panel-item {
+    margin: 0.31em auto;
+}
+
+.panel-item-item {
+    padding-left: 2.125em;
+    margin: 0.31em auto;
+}
+
+.partbg {
+    background-color: rgba(255, 255, 255, 0.75);
+}
+.login {
+    float: right;
+    margin: 0.625em 1.25em;
+}
+.login a,span{
+    padding: 0;
+    padding-left: 0.3em;
+    font-size: 0.9em;
+    text-align: unset;
+}
+a,span {
+    padding-left: 0.8em;
+    font-size: 0.9em;
+    text-align: center;
+    transition-duration: .3s;
+    text-decoration: none;
+}
+
+a:link, a:visited, a:active {
+    color: #333333;
+}
+
+a:hover {
+    color: grey;
+}
+
+.list-group {
+    height: 100%;
+}
+
+.clean {
+    clear: both;
+}
+
+

@@ -1,0 +1,30 @@
+.select-form {
+    margin: 1.875em 2.18em;
+}
+.select-form select {
+    border-radius: 2px;
+    border: 1px solid deepskyblue;
+}
+.select-form input {
+    background-color: deepskyblue;
+    color: white;
+    border-radius: 2px;
+    border: 2px solid deepskyblue;
+    transition: all 0.5s;
+}
+.select-form input:hover {
+    background-color: white;
+    color: deepskyblue;
+}
+.chart {
+    margin: 1.875em 2.18em;
+    height: 25em;
+}
+.levelsale{
+    height: 35em;
+    margin: 2.18em;
+}
+.levelprice{
+    height: 37em;
+    margin: 2.18em;
+}
