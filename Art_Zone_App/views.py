@@ -108,4 +108,4 @@ def WenxinAPI(request):
         }
         rst = TextToImage.create(**input_dict)
         print(rst["imgUrls"])
-        return render(request, "wenxin.html", context={'rst': rst, 'stylelist': stylelist})
+        return render(request, "wenxin.html", {'rst': rst})

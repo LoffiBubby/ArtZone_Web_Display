@@ -6,22 +6,51 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>WenXin Multimodal</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@2.2.0/build/pure-min.css" integrity="sha384-7UE2/aLxcikvluV1XGghN2k6i+LoAwMjrZb4oVT9gGPPcLd2sjqAtgIinHb11RJz" crossorigin="anonymous">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital@1&display=swap');
+        .pure-form .header {
+            height: 80px;
+            background-image: linear-gradient(to right, #92fe9d 0%, #00c9ff 100%);
+        }
+        .pure-form {
+            font-family: 'Lobster', cursive;
+        }
+        .pure-form .header h1{
+            padding-top: 20px;
+            position: relative;
+            left: 80px;
+            font-family: 'Lobster', cursive;
+        }
+        .pure-form .pure-checkbox {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: bold;
+        }
+        .pure-form .pure-controls input{
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: bold;
+        }
+        .pure-table {
+            margin-left: 100px;
+        }
+    </style>
 </head>
 <body>
-<form action="/wenxinapi/" method="post">
-    {% csrf_token %}
-    <h1>Welcome to Art Workshop:</h1>
-    <div class="artselect">
-        <table>
-            <tr class="content">
-                <td>Text</td>
-                <td>
-                    <input name="text" autocomplete="off" maxlength="100" placeholder="Please enter Prompt in Chinese" id="text" type="text" value="{{ text }}">
-                </td>
-            </tr>
-            <tr class="">
-                <td>Style</td>
-                <td>
+{#<form action="/wenxinapi/" method="post">#}
+{#    {% csrf_token %}#}
+{#    <h1>Welcome to Art Workshop:</h1>#}
+{#    <div class="artselect">#}
+{#        <table>#}
+{#            <tr class="content">#}
+{#                <td>Text</td>#}
+{#                <td>#}
+{#                    <input name="text" autocomplete="off" maxlength="100" placeholder="Please enter Prompt in Chinese" id="text" type="text" value="{{ text }}">#}
+{#                </td>#}
+{#            </tr>#}
+{#            <tr class="">#}
+{#                <td>Style</td>#}
+{#                <td>#}
 {#                    <select name="style">#}
 {#                        <option value="0" selected>全部</option>#}
 {#                        {% for i in stylelist %}#}
@@ -30,37 +59,88 @@
 {#                            </option>#}
 {#                        {% endfor %}#}
 {#                    </select>#}
-                    <input name="style" autocomplete="off" maxlength="100" placeholder="Please input type with Chinese" value="{{ style }}">
-                </td>
-            </tr>
-            <tr>
-                <td>Resolution</td>
-                <td>
+{#                    <input name="style" autocomplete="off" maxlength="100" placeholder="Please input type with Chinese" value="{{ style }}">#}
+{#                </td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <td>Resolution</td>#}
+{#                <td>#}
 {#                    <select name="resolution">#}
 {#                        <option value="{{ resolution }}">1024*1024</option>#}
 {#                        <option value="{{ resolution }}">1024*1536</option>#}
 {#                        <option value="{{ resolution }}">1536*1024</option>#}
 {#                    </select>#}
-                    <input name="resolution" type="text" maxlength="100" placeholder="1024*1024,1024*1536,1536*1024 are available" value="{{ resolution }}">
-                </td>
-            </tr>
-            <tr>
-                <p>You can choose 1024*1024, 1024*1536,1536*1024 as resolution.</p>
-            </tr>
-        </table>
-        <input type="submit" value="CREATE">
+{#                    <input name="resolution" type="text" maxlength="100" placeholder="1024*1024,1024*1536,1536*1024 are available" value="{{ resolution }}">#}
+{#                </td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <p>You can choose 1024*1024, 1024*1536,1536*1024 as resolution.</p>#}
+{#            </tr>#}
+{#        </table>#}
+{#        <input type="submit" value="CREATE">#}
+{#    </div>#}
+{#</form>#}
+<form class="pure-form pure-form-aligned" action="/wenxinapi/" method="post">
+    {% csrf_token %}
+    <div class="header">
+        <h1>Welcome to Art Workshop!</h1>
     </div>
+    <fieldset>
+        <div class="pure-control-group">
+            <label>Prompts</label>
+            <input name="text" autocomplete="off" maxlength="100" id="text" type="text" placeholder="Input the Prompts" value="{{ text }}">
+            <aside class="pure-form-message-inline">This is a <code>Chinese-only</code> input</aside>
+        </div>
+
+        <div class="pure-control-group">
+            <label>Style</label>
+            <input type="text" name="style" placeholder="Input the Style" id= "style" value="{{ style }}">
+            <aside class="pure-form-message-inline">This is a <code>Chinese-only</code> input</aside>
+        </div>
+
+        <div class="pure-control-group">
+            <label>Resolution</label>
+            <input name="resolution" type="text" placeholder="Resolution Type" value="{{ resolution }}">
+        <aside class="pure-form-message-inline"><code>1024*1024, 1536*1024, 1024*1536</code> available</aside>
+        </div>
+        <div class="pure-controls">
+            <label class="pure-checkbox">
+                <input type="checkbox"> I have acknowledged the function provided by Baidu
+            </label>
+            <input type="submit" class="pure-button" value="CREATE">
+        </div>
+    </fieldset>
 </form>
-<table>
-    <tr>
-        <td>ImgUrl</td>
-    </tr>
-    {% for result in rst.imgUrls %}
-    <tr>
-        <td><a href="{{ result }}">{{ result }}</a>
-            <img src="{{ result }}" width="300" height="300"></td>
-    </tr>
-    {% endfor %}
+
+
+{#<table>#}
+{#    <tr>#}
+{#        <td>ImgUrl</td>#}
+{#    </tr>#}
+{#    {% for result in rst.imgUrls %}#}
+{#    <tr>#}
+{#        <td><a href="{{ result }}">{{ result }}</a>#}
+{#            <img src="{{ result }}" width="300" height="300"></td>#}
+{#    </tr>#}
+{#    {% endfor %}#}
+{#</table>#}
+
+
+<table class="pure-table pure-table-horizontal">
+    <thead>
+        <tr>
+            <th>ImgURL</th>
+            <th>Picture</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for result in rst.imgUrls %}
+        <tr>
+            <td><a href="{{ result }}">{{ result }}</a></td>
+            <td><img src="{{ result }}" width="300" height="300" alt="click the link"></td>
+        </tr>
+        {% endfor %}
+    </tbody>
 </table>
 </body>
 </html>
