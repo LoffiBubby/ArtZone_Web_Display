@@ -20,7 +20,7 @@ from Art_Zone_App import views
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('index/', views.index),
-    path('menu/', views.menu),
+    # path('menu/', views.menu),
     path('wenxinpage/', views.WenxinPage),
     path('wenxinapi/', views.WenxinAPI),
     path('login/', views.user_login),

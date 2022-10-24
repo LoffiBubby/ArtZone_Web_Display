@@ -76,7 +76,7 @@ WSGI_APPLICATION = "ArtZone_Web_Display.wsgi.application"
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'cardemo',
+        'NAME': 'artuser',
         'HOST': 'localhost',
         'PORT': '3306',
         'USER': 'root',

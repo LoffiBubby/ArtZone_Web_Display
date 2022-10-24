@@ -5,29 +5,32 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>WenXin Multimodal</title>
 </head>
 <body>
 <form action="/wenxinapi/" method="post">
     {% csrf_token %}
-    Art type select:
+    <h1>Welcome to Art Workshop:</h1>
     <div class="artselect">
         <table>
             <tr class="content">
                 <td>Text</td>
                 <td>
-                    <input name="text" autocomplete="off" maxlength="100" placeholder="请用中文输入Prompt，参考形式：画面主体，细节描述，修饰词" id="text" type="text" value="{{ text }}">
+                    <input name="text" autocomplete="off" maxlength="100" placeholder="Please enter Prompt in Chinese" id="text" type="text" value="{{ text }}">
                 </td>
             </tr>
-            <tr>
+            <tr class="">
                 <td>Style</td>
                 <td>
 {#                    <select name="style">#}
-{#                        {% for style in stylelist %}#}
-{#                            <option value="{{ style }}">{{ style }}</option>#}
+{#                        <option value="0" selected>全部</option>#}
+{#                        {% for i in stylelist %}#}
+{#                            <option value="{{ i }}">#}
+{#                                {{ i }}#}
+{#                            </option>#}
 {#                        {% endfor %}#}
 {#                    </select>#}
-                    <input name="style" autocomplete="off" maxlength="100" placeholder="Please input with Chinese" value="{{ style }}">
+                    <input name="style" autocomplete="off" maxlength="100" placeholder="Please input type with Chinese" value="{{ style }}">
                 </td>
             </tr>
             <tr>
@@ -40,6 +43,9 @@
 {#                    </select>#}
                     <input name="resolution" type="text" maxlength="100" placeholder="1024*1024,1024*1536,1536*1024 are available" value="{{ resolution }}">
                 </td>
+            </tr>
+            <tr>
+                <p>You can choose 1024*1024, 1024*1536,1536*1024 as resolution.</p>
             </tr>
         </table>
         <input type="submit" value="CREATE">

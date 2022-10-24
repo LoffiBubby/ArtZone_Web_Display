@@ -13,13 +13,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500&family=Pacifico&display=swap" rel="stylesheet">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fasthand&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
         .w {
             width: 1200px;
             margin: 0 auto;
             background-color: deeppink;
         }
         .shortcut {
-            height: 40px;
+            height: 50px;
             line-height: 40px;
             background-color: #f1f1f1;
         }
@@ -30,12 +32,13 @@
             float: right;
         }
         .shortcut ul li {
-            margin-top: -16px;
+            margin-top: 6px;
             list-style: none;
             float: left;
             padding-left: 10px;
-            font-size: 20px;
-            font-family: 'Noto Sans TC', sans-serif;
+            font-size: 30px;
+            font-family: 'Fasthand', cursive;
+            font-weight: bold;
         }
         .shortcut .ve_account {
             margin-left: 10px;
@@ -52,7 +55,7 @@
         }
         .fr ul li a {
             text-decoration: none;
-            font-family: 'Pacifico', cursive;
+            font-family: 'Fasthand', cursive;
             font-size: 15px;
             transition: all 0.5s linear;
         }
@@ -65,15 +68,20 @@
             padding-top: 60px;
         }
         .items li h1 {
-            padding-left: 130px;
-            font-family: 'Noto Sans TC', sans-serif;
+            padding-left: 150px;
+            font-family: 'Bebas Neue', cursive;
         }
         .items li {
+            color: #0D0000;
             padding-top: 20px;
         }
+        .register tbody tr {
+
+        }
         .username td {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 20px;
             padding-top: 15px;
-            font-size: 15px;
             padding-left: 40px;
         }
         .username td input {
@@ -88,14 +96,14 @@
             border: 2px solid deepskyblue;
         }
         .password td {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 20px;
             padding-top: 15px;
-            font-size: 15px;
-            padding-left: 46px;
+            padding-left: 40px;
         }
         .password td input {
             border: 1px solid #f1f1f1;
-            padding-left: 5px;
-            margin-left: -6px;
+            padding-left: 10px;
             height: 24px;
             border-radius: 4px;
             transition: all 0.5s;
@@ -105,14 +113,15 @@
             border: 2px solid deepskyblue;
         }
         .first_name td {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 20px;
             padding-top: 15px;
-            font-size: 15px;
-            padding-left: 50px;
+            padding-left: 39px;
         }
         .first_name td input {
             border: 1px solid #f1f1f1;
             padding-left: 5px;
-            margin-left: -10px;
+            margin-left: 1px;
             height: 24px;
             border-radius: 4px;
             transition: all 0.5s;
@@ -122,14 +131,14 @@
             border: 2px solid deepskyblue;
         }
         .last_name td {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 20px;
             padding-top: 15px;
-            font-size: 15px;
-            padding-left: 50px;
+            padding-left: 40px;
         }
         .last_name td input {
             border: 1px solid #f1f1f1;
             padding-left: 5px;
-            margin-left: -10px;
             height: 24px;
             border-radius: 4px;
             transition: all 0.5s;
@@ -139,14 +148,15 @@
             border: 2px solid deepskyblue;
         }
         .email td {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 20px;
             padding-top: 15px;
-            font-size: 15px;
-            padding-left: 46px;
+            padding-left: 50px;
         }
         .email td input {
             border: 1px solid #f1f1f1;
             padding-left: 5px;
-            margin-left: -6px;
+            margin-left: -9px;
             height: 24px;
             border-radius: 4px;
             transition: all 0.5s;
@@ -159,11 +169,12 @@
             padding-left: 150px;
         }
         .tj input {
-            margin-left: 150px;
+            margin-left: 170px;
             background-color: deepskyblue;
             width: 100px;
             height: 40px;
-            font-family: 'Noto Sans TC', sans-serif;
+            font-family: 'Bebas Neue', cursive;
+            font-size: 20px;
             color: white;
             border: 2px solid deepskyblue;
             border-radius: 20px;
@@ -175,11 +186,12 @@
         }
         .dl input {
             margin-top: 15px;
-            margin-left: 150px;
+            margin-left: 170px;
             background-color: deepskyblue;
             width: 100px;
             height: 40px;
-            font-family: 'Noto Sans TC', sans-serif;
+            font-family: 'Bebas Neue', cursive;
+            font-size: 20px;
             color: white;
             border: 2px solid deepskyblue;
             border-radius: 20px;
@@ -189,6 +201,11 @@
             color: deepskyblue;
             background-color: white;
         }
+        .page_paper {
+            height:650px;
+            background-image: url("../static/images/Claude_Monet,_Impression,_soleil_levant.jpg");
+            background-repeat: repeat-x;
+        }
     </style>
 </head>
 <body onload="getSysTime()">
@@ -197,7 +214,7 @@
         <section class="shortcut">
             <div class="w">
                 <ul class="fl">
-                    <li>欢迎您注册AMG.net</li>
+                    <li>Welocme to Art Zone</li>
 {#                    <li class="ve_account">已有账号，去<a href="/login/">登录</a></li>#}
                 </ul>
                 <ul class="fr">
@@ -206,27 +223,27 @@
             </div>
             <div class="register">
                 <ul class="items">
-                    <li><h1>注册登记</h1></li>
+                    <li><h1>REGISTER</h1></li>
                 </ul>
                 <table>
                     <tr class="username">
-                        <td>用户名</td>
+                        <td>Username</td>
                         <td><input type="text" name="username" size="30" maxlength="20" class="text" value="{{info.username}}"></td>
                     </tr>
                     <tr class="password">
-                        <td>密码</td>
+                        <td>Password</td>
                         <td class="sign_pwd"><input type="password" name="pwd" size="30" maxlength="10" class="text" value="{{info.pwd}}"></td>
                     </tr>
                     <tr class="first_name">
-                        <td>姓</td>
+                        <td>First Name</td>
                         <td><input type="text" name="first_name" size="30" maxlength="30" class="text" value="{{info.first_name}}"></td>
                     </tr>
                     <tr class="last_name">
-                        <td>名</td>
+                        <td>Last Name</td>
                         <td><input type="text" name="last_name" size="30" maxlength="30" class="text" value="{{info.last_name}}"></td>
                     </tr>
                     <tr class="email">
-                        <td>邮箱</td>
+                        <td>Email</td>
                         <td><input type="email" name="email" size="30" maxlength="50" class="text" value="{{info.email}}"></td>
                     </tr>
                     <tr align="center" >
@@ -236,16 +253,19 @@
                     </tr>
                     <tr class="tj">
                         <td colspan="2">
-                            <input type="submit" value="提交">
+                            <input type="submit" value="SUBMIT">
                         </td>
                     </tr>
                     <tr class="dl">
                         <td colspan="2">
-                            <input type="button" value="登陆" onclick="window.location.href = '/login/'">
+                            <input type="button" value="LOGIN" onclick="window.location.href = '/login/'">
                         </td>
                     </tr>
                 </table>
             </div>
+        </section>
+        <section class="page_paper">
+
         </section>
     </form>
 </body>

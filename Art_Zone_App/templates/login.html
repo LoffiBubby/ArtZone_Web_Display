@@ -13,13 +13,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Italianno&family=Monoton&family=Noto+Sans+HK&family=Staatliches&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Yanone+Kaffeesatz:wght@300&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Righteous&family=Yanone+Kaffeesatz:wght@300&display=swap');
+
         .log {
             width: 1200px;
             margin: auto;
         }
         .header {
             position: relative;
-            height: 80px;
+            height: 150px;
         }
         .header .logo {
             position: absolute;
@@ -31,7 +35,7 @@
         .header .logo h1 a {
             display: block;
             width: 300px;
-            height: 110px;
+            height: 120px;
             background: url(" ../static/images/emblem-art-gallery_658131-1.png") no-repeat;
             background-size: contain;
         }
@@ -44,18 +48,18 @@
             background-color: deepskyblue;
             position: absolute;
             right: 20px;
-            top: 20px;
+            top: 50px;
             line-height: 40px;
             text-align: center;
             color: white;
-            font-size: 15px;
+            font-size: 18px;
             border-radius: 20px;
             border: 1px solid deepskyblue;
-            font-family: 'Noto Sans HK', sans-serif;
+            font-family: 'Pacifico', cursive;
             transition: background-color 0.5s;
         }
         .header .service span {
-            margin-top: 5px;
+            margin-top: -5px;
             font-size: 18px;
             margin-left: 8px;
         }
@@ -73,45 +77,53 @@
         table {
             margin: auto;
         }
+
         .title {
-            font-family: 'Monoton', cursive;
+            font-family: 'Righteous', cursive;
             font-weight: 400;
-            font-size: 60px;
+            font-size: 75px;
             text-align: center;
         }
         .username td p {
             margin-top: 30px;
-            padding-left: 110px;
+            padding-left: 45px;
             font-size: 20px;
-            font-family: 'Noto Sans HK', sans-serif;
+            font-family: 'Yanone Kaffeesatz', sans-serif;
+            font-weight: bold;
         }
         .username td input ,
         .password td input {
             height: 30px;
             border: 2px solid deepskyblue;
             border-radius: 15px;
-            margin-left: -50px;
+            margin-left: -30px;
             padding-left: 10px;
             margin-top: 30px;
         }
         .password td p {
-            padding-left: 110px;
+            padding-left: 50px;
             font-size: 20px;
-            font-family: 'Noto Sans HK', sans-serif;
+            font-family: 'Yanone Kaffeesatz', sans-serif;
+            font-weight: bold;
             margin-top: 30px;
         }
         .checkbox input {
+            float: left;
             height: 15px;
             line-height: 15px;
         }
         .checkbox {
-            font-family: 'Noto Sans HK', sans-serif;
-            font-size: 15px;
+            padding-left: 10px;
+            padding-top: 20px;
+            font-family: 'Yanone Kaffeesatz', sans-serif;
+            font-weight: bold;
+            font-size: 18px;
             line-height: 15px;
         }
         .submit td input {
-            font-family: 'Noto Sans HK', sans-serif;
-            font-size: 20px;
+            font-family: 'Yanone Kaffeesatz', sans-serif;
+            font-weight: bold;
+            font-size: 25px;
             color: white;
             background-color: deepskyblue;
             margin-left: 180px;
@@ -126,6 +138,36 @@
             color: deepskyblue;
             background-color: white;
         }
+        .b_footer {
+            position: relative;
+            top: 50px;
+            height: 120px;
+        }
+        #b_footerItems {
+            padding-right: 30px;
+            padding-top: 10px;
+            font-weight: bold;
+            float: right;
+        }
+        {##b_footerItems ul li a{#}
+        {#    font-size: 8px;#}
+        .img_intro {
+            float: right;
+            margin-left: 30px;
+            margin-top: 10px;
+            width: 100px;
+            height: 100px;
+            {#background: yellow;#}
+        }
+        .img_intro h1 {
+            font-size: 0;
+        }
+        .img_intro h1 a {
+            background: url(" ../static/images/派大星.jpg") no-repeat;
+            display: block;
+            height: 100px;
+            background-size: contain;
+        }
     </style>
 </head>
 <body onload="getSysTime()">
@@ -135,11 +177,11 @@
             <div class="header">
                 <div class="logo">
                     <h1>
-                        <a href="#" title="AMG.net">AMG.net</a>
+                        <a href="#" title="ArtZone.com">ArtZone.com</a>
                     </h1>
                 </div>
                 <div class="service">
-                    <a href="#">咨询客服<span class="material-icons-outlined">whatsapp</span></a>
+                    <a href="mailto:lwk1609964274@outlook.com?subject=TheProblemYouHaveKnowAbout&body=DamnnnnnnnBro">Requiry<span class="material-icons-outlined">whatsapp</span></a>
                 </div>
             </div>
             {#标题的设计#}
@@ -150,15 +192,19 @@
                     </td>
                 </tr>
                 <tr class="username">
-                    <td><p>用户名</p></td>
+                    <td><p>User&nbsp;Name</p></td>
                     <td>
-                        <input type="text" name="username" size="30" maxlength="20" class="text" value="{{info.username}}">
+                        <label>
+                            <input type="text" name="username" size="30" maxlength="20" class="text" value="{{info.username}}">
+                        </label>
                     </td>
                 </tr>
                 <tr class="password">
-                    <td><p>密&nbsp;码</p></td>
+                    <td><p>Password</p></td>
                     <td>
-                        <input type="password" name="pwd" size="30" maxlength="10" class="text" value="{{info.pwd}}">
+                        <label>
+                            <input type="password" name="pwd" size="30" maxlength="10" class="text" value="{{info.pwd}}">
+                        </label>
                     </td>
                 </tr>
                 <tr class="remember">
@@ -170,16 +216,26 @@
                 <tr>
                     <td></td>
                     <td class="checkbox">
-                        <input type="checkbox" name="remembered" value="on">Remember the Login for 1 Day
+                        <label>
+                            <input type="checkbox" name="remembered" value="on">
+                        </label>Remember 10 Days
                     </td>
                 </tr>
                 <tr class="submit">
                     <td colspan="2">
-                        <input type="submit" value="登&nbsp;陆">
+                        <input type="submit" value="Login">
                     </td>
                 </tr>
             </table>
-            <footer id="b_footer" class="b_footer" role="contentinfo" aria-label="页脚" data-bm="24">
+            <footer id="b_footer" class="b_footer" role="contentinfo" aria-label="footer" data-bm="24">
+                <div class="img_intro">
+                    <h1>
+                        <a href="https://instagram.com/wickenlee?r=nametag" title="Art-Zone-Developer">Weikun Li</a>
+                    </h1>
+                </div>
+                <div class="advertise">
+                    <h1>Follow the Instagram. Wait for Advice.</h1>
+                </div>
                 <div id="b_footerItems">
                     <span>© 2022 Weikun Li</span>
                     <ul>
@@ -190,16 +246,17 @@
                             <a id="sb_legal" target="_blank" href="https://www.sydney.edu.au/students/academic-integrity.html">Academic Integrity</a>
                         </li>
                         <li>
-                            <a id="sb_advertise" target="_blank" href="https://www.bing.com/ck/a?!&amp;&amp;p=da3c6f8a6dbe88b3JmltdHM9MTY2NjM5NjgwMCZpZ3VpZD0yODdlMzBjMC04MjFiLTZjYjUtMTRlYy0yMWUyODM1ODZkMmYmaW5zaWQ9NTA0NQ&amp;ptn=3&amp;hsh=3&amp;fclid=287e30c0-821b-6cb5-14ec-21e283586d2f&amp;psq=%e8%b0%b7%e6%ad%8c&amp;u=a1aHR0cHM6Ly9nby5taWNyb3NvZnQuY29tL2Z3bGluay8_bGlua2lkPTg2ODkyMg&amp;ntb=1" h="ID=SERP,5045.1">广告</a>
+                            <a id="sb_advertise" target="_blank" href="https://lwk1609964274.wixsite.com/joyner">Designer's Blog</a>
                         </li>
                         <li>
-                            <a id="sb_help" target="_blank" href="" h="ID=SERP,5046.1">帮助</a>
+                            <a id="sb_help" target="_blank" href="https://github.com/LoffiBubby/ArtZone_Web_Display">Open-Source Project</a>
                         </li>
                         <li>
-                            <a role="button" id="sb_feedback" href="#" h="ID=SERP,5047.1" class="feedback-binded">反馈</a>
+                            <a role="button" id="sb_feedback" href="mailto:lwk1609964274@outlook.com?subject=TheProblemYouHaveKnowAbout&body=HeyBro" rel="nofollow">Feedback</a>
                         </li>
                     </ul>
-                </div><!--foo--></footer>
+                </div><!--foo-->
+            </footer>
         </form>
     </div>
 </body>
