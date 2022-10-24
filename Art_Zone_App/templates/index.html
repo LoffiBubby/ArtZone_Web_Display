@@ -5,20 +5,151 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@2.2.0/build/pure-min.css" integrity="sha384-7UE2/aLxcikvluV1XGghN2k6i+LoAwMjrZb4oVT9gGPPcLd2sjqAtgIinHb11RJz" crossorigin="anonymous">
     <title>Index</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+        h1 {
+            margin-top: 2em;
+            font-size: 15px;
+            font-weight: normal;
+        }
+        body {
+            padding: 2em 2em 8em;
+        }
+
+        /* Update background on menu. */
+        .menu-custom,
+        .children-custom,
+        .menu-custom .pure-menu-list {
+            background: #111;
+            padding: 0.8em;
+            border-radius: 5px;
+        }
+
+        /* Make the heading white */
+        .heading-custom {
+            color: white;
+        }
+        .heading-custom:hover {
+            background-color: transparent;
+        }
+
+        /* Make links light-gray with a transition */
+        .link-custom {
+            color: #ddd;
+            transition: color 0.5s;
+        }
+
+        /* Color links blue on hover and focus */
+        .pure-menu-item a:hover,
+        .pure-menu-item a:focus {
+            color: #40a4ff;
+            background-color: transparent;
+        }
+
+        /* Update the positioning of the toggle button
+        because we are modifying the menu's padding, and change its color. */
+        .toggle-custom {
+            margin-right: 15px;
+            color: white;
+        }
+
+        .pure-menu-custom-1 {
+            border: 1px solid #ccc;
+            border-radius: 2px;
+            min-width: 480px;
+        }
+        .pure-menu-custom-2 {
+            border: 1px solid #ccc;
+            border-radius: 2px;
+            width: 150px;
+        }
+        .pure-menu-custom-2 .pure-menu-list {
+            display: block;
+        }
+        .pure-menu-custom-2 .pure-menu-children {
+            border: 1px solid #ccc;
+            border-radius: 2px;
+            width: 170px;
+            box-shadow: 0 6px 12px rgba(0,0,0,.175);
+        }
+        .pure-menu-custom-3 {
+            border: 1px solid #ccc;
+            border-radius: 7px;
+            width: 180px;
+            height: 150px;
+        }
+        .pure-menu-custom-3 .pure-menu-list {
+            display: block;
+        }
+        .pure-menu-custom-1 a {
+            font-family: 'Roboto Slab', serif;
+            font-weight: bold;
+        }
+        .pure-menu-itemr1,
+        .pure-menu-itemr2 {
+            margin-top: 5px;
+            float: right;
+        }
+        .pure-menu-itemr1 a,
+        .pure-menu-itemr2 a {
+            font-size: 10px;
+            color: #000000;
+        }
+        .pure-menu-itemr1 a:hover,
+        .pure-menu-itemr2 a:hover {
+            color: darkviolet;
+            transition: all 0.7s;
+            background-color: transparent;
+        }
+        .l-box {
+        padding: 1em;
+        }
+        .mainPage {
+            height: 500px;
+            width: auto;
+            background-color: pink;
+            border-width: ;
+        }
+    </style>
 </head>
+{% csrf_token %}
+<script>{{ script|safe }}</script>
+</script>
 <body>
-    <div class="pure-menu pure-menu-horizontal pure-menu-custom-1">
-        <a href="#" class="pure-menu-link pure-menu-heading">ArtZone</a>
-        <ul class="pure-menu-list">
-            <li class="pure-menu-separator"></li>
-            <li class="pure-menu-item"><a href="https://play.workadventu.re/_/gcp06d5lz24/localhost:3000/map.json" class="pure-menu-link">Gallery</a></li>
-            <li class="pure-menu-item"><a href="/wenxin/" class="pure-menu-link">WenXin</a></li>
-            <li class="pure-menu-item"><a href="#" class="pure-menu-link">Blog</a></li>
-            <li class="pure-menu-item"><a href="mailto:lwk1609964274@outlook.com" class="pure-menu-link">Contact</a></li>
-            <li class="pure-menu-item"><a href="" class="pure-menu-link">GitHub</a></li>
-            <li class="pure-menu-item"><a href="#" class="pure-menu-link">Twitter</a></li>
-        </ul>
-    </div>
+<div class="pure-menu pure-menu-horizontal pure-menu-custom-1">
+    <a href="/index/" class="pure-menu-link pure-menu-heading">ArtZone</a>
+    <ul class="pure-menu-list">
+        <li class="pure-menu-separator"></li>
+        <li class="pure-menu-item"><a href="https://play.workadventu.re/_/gcp06d5lz24/localhost:3000/map.json" class="pure-menu-link">Gallery</a></li>
+        <li class="pure-menu-item"><a href="/wenxinpage/" class="pure-menu-link">WenXin</a></li>
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Blog</a></li>
+        <li class="pure-menu-item"><a href="mailto:lwk1609964274@outlook.com" class="pure-menu-link">Contact</a></li>
+        <li class="pure-menu-item"><a href="https://github.com/LoffiBubby/ArtZone_Web_Display" class="pure-menu-link">GitHub</a></li>
+        <li class="pure-menu-item"><a href="https://instagram.com/wickenlee?r=nametag" class="pure-menu-link">Instagram</a></li>
+        {% if request.user.is_authenticated %}
+            <span class="pure-menu-itemr1"><a href="#" class="pure-menu-link">{{ request.user }}</a></span>
+            <span class="pure-menu-itemr2"><a href="/logout/" class="pure-menu-link">Logout</a></span>
+        {% else %}
+            <span class="pure-menu-itemr1"><a href="/login/" class="pure-menu-link">Login</a></span>
+            <span class="pure-menu-itemr2"><a href="/register" class="pure-menu-link">Register</a></span>
+        {% endif %}
+    </ul>
+</div>
+{#<div class="pure-g">#}
+{#    <div class="pure-u-1-3">#}
+{#        <img class="pure-img" src="../static/images/张大千.jpeg" alt="张大千">#}
+{#    </div>#}
+{#    <div class="pure-u-1-3">#}
+{#        <img class="pure-img" src="../static/images/徐悲鸿.jpg" alt="岳敏君">#}
+{#    </div>#}
+{#    <div class="pure-u-1-3">#}
+{#        <img class="pure-img" src="../static/images/Claude_Monet,_Impression,_soleil_levant.jpg" alt="列宁">#}
+{#    </div>#}
+{#</div>#}
+<div class="mainPage">
+    <iframe src="" frameborder="0"></iframe>
+</div>
 </body>
 </html>
