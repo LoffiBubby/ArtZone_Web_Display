@@ -133,7 +133,7 @@
         <li class="pure-menu-item"><a href="https://github.com/LoffiBubby/ArtZone_Web_Display" class="pure-menu-link">GitHub</a></li>
         <li class="pure-menu-item"><a href="https://instagram.com/wickenlee?r=nametag" class="pure-menu-link">Instagram</a></li>
         {% if request.user.is_authenticated %}
-            <span class="pure-menu-itemr1"><a href="#" class="pure-menu-link">{{ request.user }}</a></span>
+            <span class="pure-menu-itemr1"><a href="/admin/" class="pure-menu-link">{{ request.user }}</a></span>
             <span class="pure-menu-itemr2"><a href="/logout/" class="pure-menu-link">Logout</a></span>
         {% else %}
             <span class="pure-menu-itemr1"><a href="/login/" class="pure-menu-link">Login</a></span>
