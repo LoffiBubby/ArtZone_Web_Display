@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>WenXin QA</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@2.2.0/build/pure-min.css" integrity="sha384-7UE2/aLxcikvluV1XGghN2k6i+LoAwMjrZb4oVT9gGPPcLd2sjqAtgIinHb11RJz" crossorigin="anonymous">
+</head>
+<body>
+    <form class="pure-form pure-form-stacked" action="/wenxinqaapi/" method="post">
+        {% csrf_token %}
+        <fieldset>
+            <legend>QA TASK</legend>
+
+            <label>Text</label>
+            <input type="text" name="text" required value="{{ text }}">
+            <aside class="pure-form-message-inline">The text input by User</aside>
+
+            <label>Maximum Length</label>
+            <input type="text" name="seq_len" required value="{{ seq_len }}">
+            <aside class="pure-form-message-inline">Maximum length of text</aside>
+
+            <label>Minium Length</label>
+            <input type="text" name="min_dec_len" required value="{{ min_dec_len }}">
+            <aside class="pure-form-message-inline">Minium length of text</aside>
+
+            <label>Variety</label>
+            <input type="text" name="topp" required value="{{ topp }}">
+            <aside class="pure-form-message">Determine the variety of sentence</aside>
+
+            <label class="pure-checkbox">
+                <input type="checkbox"> I've write the form with Chinese.
+            </label>
+
+            <input type="submit" class="pure-button notice" value="SUBMIT">
+            <input type="reset" class="pure-button" value="RESET">
+
+        </fieldset>
+    </form>
+    <table class="pure-table pure-table-horizontal">
+        <thead>
+            <tr>
+                <th>Result</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ rst.result }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+{#    <form class="pure-form pure-form-stacked" action="/wenxinqaapi/" method="post">#}
+{#        <label>Target Language</label>#}
+{#        <input name="target" type="text" class="pure-input-rounded" placeholder="Language code" value="{{ target }}"/>#}
+{##}
+{#        <label>Message</label>#}
+{#        <textarea name="text" class="pure-input-rounded" rows="5" cols="40" placeholder="Message..." type="text">{{ text }}</textarea>#}
+{##}
+{#        <button type="submit" class="pure-button pure-input-rounded">Trans</button>#}
+{#        <input type="reset" class="pure-button pure-input-rounded" value="Reset" />#}
+{#    </form>#}
+{##}
+{#    <table class="pure-table pure-table-horizontal">#}
+{#            <thead>#}
+{#                <tr>#}
+{#                    <th>Result</th>#}
+{#                </tr>#}
+{#            </thead>#}
+{#            <tbody>#}
+{#                <tr>#}
+{#                    <td>{{ result.translatedText }}</td>#}
+{#                </tr>#}
+{#            </tbody>#}
+{#        </table>#}
+    </body>
+</html>

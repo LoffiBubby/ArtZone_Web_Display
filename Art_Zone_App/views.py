@@ -2,6 +2,10 @@ from django.contrib.auth import authenticate, logout, login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
+from google.cloud import translate_v2
+import six
+from google.cloud import translate_v2 as translate
+from Art_Zone_App import function
 import pandas as pd
 import numpy as np
 import os
@@ -9,6 +13,7 @@ import jieba
 # -*- coding: utf-8 -*
 
 import wenxin_api
+from wenxin_api.tasks import FreeQA
 from wenxin_api.tasks.text_to_image import TextToImage
 
 stylelist = ['古风', '油画', '未来主义', '像素风格', '概念艺术', '赛博朋克', '蒸汽波艺术', '像素风格', '写实风格']
@@ -109,3 +114,43 @@ def WenxinAPI(request):
         rst = TextToImage.create(**input_dict)
         print(rst["imgUrls"])
         return render(request, "wenxin.html", {'rst': rst})
+
+
+def WenxinQAPage(request):
+    return render(request, 'wenxinQA.html')
+
+
+def WenxinQA(request):
+    if request.method == 'POST':
+        wenxin_api.ak = "P9nYOy9VzHd4oKXSjp3CfcNZwhPPGAMA"  # 输入您的API Key
+        wenxin_api.sk = "NEiF373MF0MK4N6ZR6OVES9vuEU6rKQd"  # 输入您的Secret Key
+        text = request.POST.get("text")
+        min_dec_len = request.POST.get("min_dec_len")
+        seq_len = request.POST.get("seq_len")
+        topp = request.POST.get("topp")
+        input_dict = {
+            "text": text,
+            "seq_len": seq_len,
+            "topp": topp,
+            "penalty_score": 1.2,
+            "min_dec_len": min_dec_len,
+            "min_dec_penalty_text": "。?：！[<S>]",
+            "is_unidirectional": 0,
+            "task_prompt": "qa",
+            "mask_type": "paragraph"
+        }
+        rst = FreeQA.create(**input_dict)
+        print(rst)
+        return render(request, "wenxinQA.html", {'rst': rst})
+
+
+# def Google_Trans_page(request):
+#     return render(request, 'GoogleeTran.html')
+#
+#
+# def Google_Trans(request):
+#     if request.method == 'POST':
+#         target = request.POST.get("target")
+#         text = request.POST.get("text")
+#         result = function.translate_text(target, text)
+#         return render(request, 'GoogleeTran.html', {'result': result})
