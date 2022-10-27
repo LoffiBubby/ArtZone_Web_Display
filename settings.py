@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-3r(_sc+!8-xrb3m76%1t%k)jz7f*^a9@v&zp-0_@@3e3t1sede"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['10.16.62.74','localhost','127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "Art_Zone_App",
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -47,6 +48,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = "ArtZone_Web_Display.urls"
@@ -117,8 +119,18 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static').replace('\\', '/')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static').replace('\\', '/')
 
-LOGIN_URL = '/login/'
+LOGIN_URL = '/register/'
 
 X_FRAME_OPTIONS = 'ALLOWALL'
+
+CORS_ORIGIN_ALLOW_ALL = True
+
+CORS_ORIGIN_ALLOW_ALL = False
+
+CORS_ORIGIN_WHITELIST = (
+  'http://localhost:8000',
+)
+
+print(ALLOWED_HOSTS)
