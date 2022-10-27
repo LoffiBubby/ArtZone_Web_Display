@@ -2,14 +2,14 @@ from django.contrib.auth import authenticate, logout, login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
-from google.cloud import translate_v2
-import six
-from google.cloud import translate_v2 as translate
-from Art_Zone_App import function
-import pandas as pd
-import numpy as np
-import os
-import jieba
+# from google.cloud import translate_v2
+# import six
+# from google.cloud import translate_v2 as translate
+# from Art_Zone_App import function
+# import pandas as pd
+# import numpy as np
+# import os
+# import jieba
 # -*- coding: utf-8 -*
 
 import wenxin_api

@@ -7,12 +7,51 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>WenXin QA</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@2.2.0/build/pure-min.css" integrity="sha384-7UE2/aLxcikvluV1XGghN2k6i+LoAwMjrZb4oVT9gGPPcLd2sjqAtgIinHb11RJz" crossorigin="anonymous">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital@1&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500&display=swap');
+        .pure-form {
+            font-family: 'Lobster', cursive;
+        }
+        .pure-form .header {
+            height: 80px;
+            background-image: linear-gradient(to right, #00dbde 0%, #fc00ff 100%);
+        }
+        .pure-form .header h1 {
+            line-height: 80px;
+            margin-left: 50px;
+        }
+        fieldset {
+            position: relative;
+            left: 50px;
+        }
+        fieldset input {
+            padding-left: 8px;
+        }
+        .pure-checkbox {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: bold;
+        }
+        .pure-button {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: bold;
+        }
+        .pure-table {
+            margin-top: 20px;
+            margin-left: 50px;
+            width: 500px;
+            font-family: 'Noto Serif TC', serif;
+        }
+    </style>
 </head>
 <body>
     <form class="pure-form pure-form-stacked" action="/wenxinqaapi/" method="post">
         {% csrf_token %}
-        <fieldset>
-            <legend>QA TASK</legend>
+        <div class="header">
+                <h1>Enjoy the Magic of Word!</h1>
+        </div>
+        <fieldset class="pure-form">
 
             <label>Text</label>
             <input type="text" name="text" required value="{{ text }}">
