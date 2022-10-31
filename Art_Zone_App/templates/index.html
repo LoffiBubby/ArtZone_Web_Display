@@ -126,11 +126,11 @@
     <a href="/index/" class="pure-menu-link pure-menu-heading">ArtZone</a>
     <ul class="pure-menu-list">
         <li class="pure-menu-separator"></li>
-        <li class="pure-menu-item"><a href="https://play.workadventu.re/_/gcp06d5lz24/localhost:3001/map.json" class="pure-menu-link">Gallery</a></li>
+        <li class="pure-menu-item"><a href="https://play.workadventu.re/_/gcp06d5lz24/localhost:3000/map.json" class="pure-menu-link">Gallery</a></li>
         <li class="pure-menu-item"><a href="/wenxinpage/" class="pure-menu-link">WenXin</a></li>
         <li class="pure-menu-item"><a href="/wenxinqapage/" class="pure-menu-link">WenXinQA</a></li>
         <li class="pure-menu-item"><a href="https://pages.github.sydney.edu.au/hzhe5094/ArtZone/" class="pure-menu-link">DeepGallery</a></li>
-        <li class="pure-menu-item"><a href="http://10.16.62.74:3000" class="pure-menu-link">Community</a></li>
+        <li class="pure-menu-item"><a href="http://localhost:3001" class="pure-menu-link">Community</a></li>
         <li class="pure-menu-item"><a href="https://instagram.com/wickenlee?r=nametag" class="pure-menu-link">Instagram</a></li>
         {% if request.user.is_authenticated %}
             <span class="pure-menu-itemr1"><a href="/admin/" class="pure-menu-link">{{ request.user }}</a></span>
@@ -153,7 +153,7 @@
 {#    </div>#}
 {#</div>#}
 <div class="mainPage">
-    <iframe class="inpage" src="https://play.workadventu.re/_/uwc662u80b/localhost:3000/map.json" frameborder="0">
+    <iframe class="inpage" src="https://play.workadventu.re/_/uwc662u80b/localhost:3000/map.json" frameborder="0" allow="microphone;camera;">
     </iframe>
 </div>
 </body>
